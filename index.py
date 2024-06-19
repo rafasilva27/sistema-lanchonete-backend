@@ -1,13 +1,6 @@
-from fastapi import FastAPI, Depends, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from typing import List, Annotated
-from data_models.client import Client
-from data_models.product import Product
-from data_models.product_sale import ProductSale
-from data_models.sale import Sale
+from fastapi import FastAPI
 import models
 from database import engine
-from sqlalchemy.orm import Session
 from routes.clients import app as app_clients
 from routes.sale import app as app_sales
 
