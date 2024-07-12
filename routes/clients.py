@@ -18,14 +18,14 @@ async def get_clients(db: db_dependency):
     return result
 
 
-@app.get("/clients/{id}")
+@app.get("/client/{id}")
 async def get_client_by_id(id: int, db: db_dependency):
     result = db.query(models.Client).filter(models.Client.id == id).first()
     if not result:
         raise HTTPException(status_code=404, detail="Client not found")
     return result
 
-@app.put("/clients/{id}")
+@app.put("/client/{id}")
 async def put_client(id: int, client: Client, db: db_dependency):
     db_client = db.query(models.Client).filter(models.Client.id == id).first()
     if db_client:
@@ -41,7 +41,7 @@ async def put_client(id: int, client: Client, db: db_dependency):
     else:
         raise HTTPException(status_code=404, detail="Client not found")
     
-@app.delete("/clients/{id}")
+@app.delete("/client/{id}")
 async def delete_client(id: int, db: db_dependency):
     db_client = db.query(models.Client).filter(models.Client.id == id).first()
     if db_client:
