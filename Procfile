@@ -1,1 +1,1 @@
-web: uvicorn app.index:app
+web: uvicorn app.index:app --host 0.0.0.0 --port 8000
